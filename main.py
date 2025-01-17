@@ -181,9 +181,9 @@ class EigenfaceRecognizer:
         plt.tight_layout()
         plt.show()
         
-    def visualize_predictions(self, X_test, y_test, predictions, image_shape, n_samples=5):
+    def visualize_predictions(self, X_test, y_test, predictions, image_shape, X_train, y_train, n_samples=5):
         """
-        Visualize random test images and their predictions
+        Visualize random test images and their predictions, showing both the test image and the predicted image.
         """
         print("\nVisualizing random predictions...")
         
@@ -201,10 +201,12 @@ class EigenfaceRecognizer:
             true_label = y_test[test_idx]
             pred_label = predictions[test_idx]
             
-            # Find the closest training image for the prediction
-            X_scaled = self.scaler.transform([X_test[test_idx]])
-            X_pca = self.pca.transform(X_scaled)
-            distances = self.knn.kneighbors(X_pca, n_neighbors=1)[0][0]
+            # Find the closest training image with the predicted label
+            closest_idx = np.where(y_train == pred_label)[0]
+            if len(closest_idx) > 0:
+                closest_image = X_train[closest_idx[0]].reshape(image_shape)  # Take the first match
+            else:
+                closest_image = np.zeros_like(test_image)  # Fallback to a blank image if no match found
             
             # Show test image
             ax_left.imshow(test_image, cmap='gray')
@@ -212,7 +214,7 @@ class EigenfaceRecognizer:
             ax_left.set_title(f'True Label: {true_label}')
             
             # Show predicted image
-            ax_right.imshow(test_image, cmap='gray')  # Showing same image with prediction label
+            ax_right.imshow(closest_image, cmap='gray')
             ax_right.axis('off')
             if true_label == pred_label:
                 color = 'green'
@@ -258,7 +260,7 @@ def main():
     recognizer.plot_confusion_matrix(y_test, predictions)
     
     # Add visualization of random predictions
-    recognizer.visualize_predictions(X_test, y_test, predictions, image_shape, n_samples=5)
+    recognizer.visualize_predictions(X_test, y_test, predictions, image_shape, X_train, y_train, n_samples=5)
     
     print(f"\nTotal execution time: {time.time() - total_start_time:.2f} seconds")
 
