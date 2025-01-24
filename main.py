@@ -24,11 +24,17 @@ class DatasetLoader:
                 'id_extraction': lambda x: int(re.search(r'yaleB(\d+)', x).group(1)),
                 'name': 'Yale Database'
             }
-        elif base_folder == "DataSet":
+        elif base_folder == "DataSetCreated":
             return {
                 'folder_pattern': r's(\d+)',  # Pattern to match s1, s2, etc.
                 'id_extraction': lambda x: int(re.search(r's(\d+)', x).group(1)),
                 'name': 'DataSet Database'
+            }
+        elif base_folder == "CompressedDataSetCreated":
+            return {
+                'folder_pattern': r's(\d+)',  # Pattern to match s1, s2, etc.
+                'id_extraction': lambda x: int(re.search(r's(\d+)', x).group(1)),
+                'name': 'Compressed DataSet'
             }
         else:
             raise ValueError(f"Unknown dataset: {base_folder}")
@@ -55,16 +61,19 @@ class DatasetLoader:
             subject_id = config['id_extraction'](subject_dir)
             subject_path = os.path.join(data_path, subject_dir)
             
-            image_files = [f for f in os.listdir(subject_path) if f.lower().endswith('.pgm')]
+            if data_path == "CroppedYale":
+                image_files = [f for f in os.listdir(subject_path) if f.lower().endswith('.pgm')]
+            else:
+                image_files = [f for f in os.listdir(subject_path) if f.lower().endswith('.jpg')]
             
             for img_file in image_files:
                 try:
                     img_path = os.path.join(subject_path, img_file)
                     img = Image.open(img_path).convert('L')
-                    
+
                     if image_shape is None:
                         image_shape = np.array(img).shape
-                    
+
                     if np.array(img).shape == image_shape:
                         img_array = np.array(img, dtype=np.float64)
                         img_array = DatasetLoader.normalize_image(img_array)
@@ -231,7 +240,7 @@ def main():
     total_start_time = time.time()
     
     # Change this line to switch between databases
-    data_path = "CroppedYale"  # or "DataSet"
+    data_path = "CroppedYale"  
     
     # Load and preprocess data
     X, y, image_shape = DatasetLoader.load_faces(data_path)
@@ -245,7 +254,7 @@ def main():
     print(f"Test set size: {len(X_test)} images")
     
     # Create and train recognizer
-    recognizer = EigenfaceRecognizer(n_components=150)
+    recognizer = EigenfaceRecognizer(n_components=150) #Components = 50 si notre DB, 150 sinon
     recognizer.fit(X_train, y_train)
     
     # Make predictions
