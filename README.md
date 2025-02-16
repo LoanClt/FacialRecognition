@@ -1,5 +1,22 @@
 # Face Recognition with CNN and Eigenfaces
 
+<h3 align="center">OxyGenie</h3>
+
+  <p align="center">
+    Welcome to OxyGenie, a Python-based project dedicated to modeling and predicting tissue oxygenation.
+    </p>
+    <p align="center">
+    <br />
+    <a href="https://alex6crbt.github.io/OxyGenie"><strong>Explore the documentation »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Alex6Crbt/OxyGenie">See a demo</a>
+    ·
+    <a href="https://github.com/Alex6Crbt/OxyGenie/issues">Report a bug</a>
+    ·
+    <a href="https://github.com/Alex6Crbt/OxyGenie/issues">Ask for a feature</a>
+  </p>
+
 This repository contains Python scripts for face recognition using two different approaches:
 1. **Convolutional Neural Networks (CNN)**: A deep learning approach for facial recognition.
 2. **Eigenfaces with PCA and k-NN**: A traditional machine learning approach using Principal Component Analysis (PCA) and k-Nearest Neighbors (k-NN).
@@ -55,6 +72,9 @@ Matthew Turk, Alex Pentland; Eigenfaces for Recognition. J Cogn Neurosci 1991; 3
 ## Running Tests
 
 Tests run on the famous Yale dataset : https://www.kaggle.com/datasets/preprocessiing/cropped-faces
+Recognition accuracy using eigenFaces method: **92.58%**
+Using a CNN : **99.2%**
+
 <img src="/img/result.png">
 <img src="/img/confusionMatrix.png">
 <img src="/img/eigenFaces.png">
