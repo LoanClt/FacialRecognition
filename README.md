@@ -30,13 +30,13 @@ pip install -r requirements.txt
 ## CNN Model
 Run the script to train a CNN model on the dataset:
 ```sh
-python cnn_face_recognition.py
+python cnn.py
 ```
 
 ## Eigenface Recognizer
 Run the script to train a CNN model on the dataset:
 ```sh
-python eigenface_recognition.py
+python eigenfaces.py
 ```
 
 ## Dataset Structure
