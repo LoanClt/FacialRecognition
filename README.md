@@ -1,11 +1,7 @@
 # Face Recognition with CNN and Eigenfaces
 
-<h3 align="center">OxyGenie</h3>
-
   <p align="center">
     <p align="center">
-    <br />
-    <br />
     <a href="https://github.com/LoanClt/FacialRecognition">See a demo</a>
     ·
     <a href="https://github.com/LoanClt">Report a bug</a>
