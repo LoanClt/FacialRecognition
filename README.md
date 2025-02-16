@@ -5,7 +5,6 @@ This repository contains Python scripts for face recognition using two different
 2. **Eigenfaces with PCA and k-NN**: A traditional machine learning approach using Principal Component Analysis (PCA) and k-Nearest Neighbors (k-NN).
 
 ## Features
-- **Dataset Handling**: Supports multiple datasets, including Yale Face Database and custom datasets.
 - **Image Preprocessing**: Grayscale conversion, resizing, and normalization.
 - **Data Augmentation**: Increases dataset size using transformations like flipping, brightness adjustment, noise addition, rotation, and blurring.
 - **CNN Model**: Built using TensorFlow/Keras with convolutional and dense layers.
