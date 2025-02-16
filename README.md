@@ -54,7 +54,10 @@ Matthew Turk, Alex Pentland; Eigenfaces for Recognition. J Cogn Neurosci 1991; 3
 
 ## Running Tests
 
-TODO
+Tests run on the famous Yale dataset : https://www.kaggle.com/datasets/preprocessiing/cropped-faces
+<img src="/img/result.png">
+<img src="/img/confusionMatrix.png">
+<img src="/img/eigenFaces.png">
 
 
 ## Feedback
