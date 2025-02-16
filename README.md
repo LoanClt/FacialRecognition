@@ -3,18 +3,14 @@
 <h3 align="center">OxyGenie</h3>
 
   <p align="center">
-    Welcome to OxyGenie, a Python-based project dedicated to modeling and predicting tissue oxygenation.
-    </p>
     <p align="center">
     <br />
-    <a href="https://alex6crbt.github.io/OxyGenie"><strong>Explore the documentation »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/Alex6Crbt/OxyGenie">See a demo</a>
+    <a href="https://github.com/LoanClt/FacialRecognition">See a demo</a>
     ·
-    <a href="https://github.com/Alex6Crbt/OxyGenie/issues">Report a bug</a>
+    <a href="https://github.com/LoanClt">Report a bug</a>
     ·
-    <a href="https://github.com/Alex6Crbt/OxyGenie/issues">Ask for a feature</a>
+    <a href="https://github.com/LoanClt">Ask for a feature</a>
   </p>
 
 This repository contains Python scripts for face recognition using two different approaches:
