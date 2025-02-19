@@ -13,6 +13,13 @@ This repository contains Python scripts for face recognition using two different
 1. **Convolutional Neural Networks (CNN)**: A deep learning approach for facial recognition.
 2. **Eigenfaces with PCA and k-NN**: A traditional machine learning approach using Principal Component Analysis (PCA) and k-Nearest Neighbors (k-NN).
 
+## List of files 
+
+1. `augmentedDataSet.py`: Artificialy improve the size of a given dataset
+2. `cnn.py`: Face recognition using a CNN (2 Conv2D + MaxPooling and a fully connected layer)
+3. `eigenfaces.py`: Face recognition using eigenfaces method
+4. `imageEditor.pr`: Compress and lower the quality of a dataset
+
 ## Features
 - **Image Preprocessing**: Grayscale conversion, resizing, and normalization.
 - **Data Augmentation**: Increases dataset size using transformations like flipping, brightness adjustment, noise addition, rotation, and blurring.
@@ -66,6 +73,8 @@ Matthew Turk, Alex Pentland; Eigenfaces for Recognition. J Cogn Neurosci 1991; 3
 Tests run on the famous Yale dataset : https://www.kaggle.com/datasets/preprocessiing/cropped-faces
 Recognition accuracy using eigenFaces method: **92.58%**
 Using a CNN : **99.2%**
+
+Here are the results using the eigenface smethod:
 
 <img src="/img/result.png">
 <img src="/img/confusionMatrix.png">
